@@ -1,4 +1,5 @@
 import type { MetaFunction } from 'remix';
+import type { LinksFunction } from 'remix';
 import {
   Links,
   LiveReload,
@@ -8,7 +9,13 @@ import {
   ScrollRestoration,
 } from 'remix';
 
-import Layout from './layouts/Layout';
+import globalStyles from '~/styles/global.css';
+
+import Layout, { links as layoutLinks } from './layouts/Layout';
+
+export const links: LinksFunction = () => {
+  return [{ rel: 'stylesheet', href: globalStyles }, ...layoutLinks()];
+};
 
 export const meta: MetaFunction = () => {
   return { title: 'Spotify Me Top' };
