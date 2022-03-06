@@ -8,8 +8,10 @@ import {
   ScrollRestoration,
 } from 'remix';
 
+import Layout from './layouts/Layout';
+
 export const meta: MetaFunction = () => {
-  return { title: 'New Remix App' };
+  return { title: 'Spotify Me Top' };
 };
 
 export default function App() {
@@ -22,7 +24,9 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        <Layout>
+          <Outlet />
+        </Layout>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
