@@ -9,14 +9,21 @@
 ## Requirements
 
 - Node.js `v16.x`
+- direnv
 
 ## Getting Started
+
+```sh
+# Set environment variables
+cp .env.sample .env
+direnv allow
+```
 
 ```sh
 # Install packages
 yarn
 
-# Serve at http://localhost:3000
+# Serve at http://localhost:7000
 yarn dev
 ```
 
