@@ -1,5 +1,5 @@
-import Home from '~/containers/Home';
+import HomeContainer from '~/containers/Home';
 
-const Index = () => <Home />;
+const Index = () => <HomeContainer />;
 
 export default Index;
