@@ -1,6 +1,6 @@
-import LoginContainer from '~/containers/Login';
+import LoginContainer, { loader } from '~/containers/Login';
 
-export { loader } from '~/containers/Login';
+export { loader };
 
 const Login = () => <LoginContainer />;
 
