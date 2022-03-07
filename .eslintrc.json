@@ -2,10 +2,11 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:tailwindcss/recommended",
     "@remix-run/eslint-config",
     "prettier"
   ],
-  "plugins": ["@typescript-eslint", "simple-import-sort"],
+  "plugins": ["@typescript-eslint", "simple-import-sort", "tailwindcss"],
   "parser": "@typescript-eslint/parser",
   "rules": {
     "simple-import-sort/imports": "warn"
