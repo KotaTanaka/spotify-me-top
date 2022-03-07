@@ -10,7 +10,7 @@ import {
 } from 'remix';
 
 import Layout from './layouts/Layout';
-import styles from './styles/app.css';
+import styles from './styles/_app.css';
 
 export const links: LinksFunction = () => {
   return [{ rel: 'stylesheet', href: styles }];
