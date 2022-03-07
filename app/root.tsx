@@ -9,12 +9,11 @@ import {
   ScrollRestoration,
 } from 'remix';
 
-import globalStyles from '~/styles/global.css';
-
-import Layout, { links as layoutLinks } from './layouts/Layout';
+import Layout from './layouts/Layout';
+import styles from './styles/app.css';
 
 export const links: LinksFunction = () => {
-  return [{ rel: 'stylesheet', href: globalStyles }, ...layoutLinks()];
+  return [{ rel: 'stylesheet', href: styles }];
 };
 
 export const meta: MetaFunction = () => {
