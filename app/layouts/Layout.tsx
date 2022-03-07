@@ -1,12 +1,4 @@
-import type { LinksFunction } from 'remix';
-
-import AppHeader, {
-  links as appHeaderLinks,
-} from '~/components/layouts/AppHeader/AppHeader';
-
-export const links: LinksFunction = () => {
-  return [...appHeaderLinks()];
-};
+import AppHeader from '~/components/layouts/AppHeader';
 
 const Layout: React.FC = ({ children }) => {
   return (

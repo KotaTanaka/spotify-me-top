@@ -1,11 +1,5 @@
-import type { LinksFunction } from 'remix';
+import Home from '~/containers/Home';
 
-import Home, { links as homeLinks } from '~/containers/Home/Home';
+const Index = () => <Home />;
 
-export const links: LinksFunction = () => {
-  return [...homeLinks()];
-};
-
-export default function Index() {
-  return <Home />;
-}
+export default Index;
