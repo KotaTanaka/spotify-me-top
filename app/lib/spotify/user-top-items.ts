@@ -1,24 +1,27 @@
-import {
+import type {
+  IGetUserTopArtistsResponse,
   IGetUserTopItemsParam,
   IGetUserTopItemsResponse,
+  IGetUserTopTracksResponse,
 } from '~/interfaces/spotify';
 import { isAxiosError, spotifyApiAxios } from '~/lib/axios';
 
 export const getUserTopArtists = async (
   accessToken: string,
   queries?: Partial<IGetUserTopItemsParam>,
-) => getUserTopItems('artists', accessToken, queries);
+) =>
+  getUserTopItems<IGetUserTopArtistsResponse>('artists', accessToken, queries);
 
 export const getUserTopTracks = async (
   accessToken: string,
   queries?: Partial<IGetUserTopItemsParam>,
-) => getUserTopItems('tracks', accessToken, queries);
+) => getUserTopItems<IGetUserTopTracksResponse>('tracks', accessToken, queries);
 
 /**
  * Get User's Top Items
  * @refs https://developer.spotify.com/documentation/web-api/reference/#/operations/get-users-top-artists-and-tracks
  */
-export const getUserTopItems = async (
+export const getUserTopItems = async <T extends IGetUserTopItemsResponse>(
   type: 'artists' | 'tracks',
   accessToken: string,
   queries?: Partial<IGetUserTopItemsParam>,
@@ -31,7 +34,7 @@ export const getUserTopItems = async (
   };
 
   try {
-    const response = await spotifyApiAxios.get<IGetUserTopItemsResponse>(path, {
+    const response = await spotifyApiAxios.get<T>(path, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },

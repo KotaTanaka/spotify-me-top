@@ -2,6 +2,7 @@ import type { LoaderFunction } from 'remix';
 import { redirect } from 'remix';
 
 import { cookieSpotifyToken } from '~/cookies';
+import { ITopArtist, ITopTrack } from '~/interfaces/spotify';
 import {
   getTokenByRefreshToken,
   getUserTopArtists,
@@ -9,8 +10,8 @@ import {
 } from '~/lib/spotify';
 
 export interface IHomeLoader {
-  topArtists: any[];
-  topTracks: any[];
+  topArtists: ITopArtist[];
+  topTracks: ITopTrack[];
 }
 
 export const loader: LoaderFunction = async ({
