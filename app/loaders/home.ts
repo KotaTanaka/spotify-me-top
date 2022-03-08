@@ -2,7 +2,11 @@ import type { LoaderFunction } from 'remix';
 import { redirect } from 'remix';
 
 import { cookieSpotifyToken } from '~/cookies';
-import { ITopArtist, ITopTrack } from '~/interfaces/spotify';
+import {
+  IGetUserTopItemsParam,
+  ITopArtist,
+  ITopTrack,
+} from '~/interfaces/spotify';
 import {
   getTokenByRefreshToken,
   getUserTopArtists,
@@ -25,8 +29,9 @@ export const loader: LoaderFunction = async ({
     throw redirect('/login', 302);
   }
 
-  const topArtistsResponse = await getUserTopArtists(accessToken);
-  const topTracksResponse = await getUserTopTracks(accessToken);
+  const queries = getQueriesFromURL(request.url);
+  const topArtistsResponse = await getUserTopArtists(accessToken, queries);
+  const topTracksResponse = await getUserTopTracks(accessToken, queries);
 
   if (!topArtistsResponse || !topTracksResponse) {
     const response = await getTokenByRefreshToken(refreshToken);
@@ -48,4 +53,29 @@ export const loader: LoaderFunction = async ({
     topArtists: topArtistsResponse.items,
     topTracks: topTracksResponse.items,
   };
+};
+
+const getQueriesFromURL = (
+  requestUrl: string,
+): Partial<IGetUserTopItemsParam> => {
+  const url = new URL(requestUrl);
+  const queryTerm = url.searchParams.get('term');
+  const queryNum = url.searchParams.get('num');
+  const queries: Partial<IGetUserTopItemsParam> = {
+    time_range: queryTerm ? convertTerm(queryTerm) : undefined,
+    limit: queryNum && /^[0-9]+$/.test(queryNum) ? Number(queryNum) : undefined,
+  };
+
+  return queries;
+};
+
+const convertTerm = (term: string): IGetUserTopItemsParam['time_range'] => {
+  switch (term) {
+    case 'short':
+    case 'medium':
+    case 'long':
+      return `${term}_term`;
+    default:
+      return 'short_term';
+  }
 };
