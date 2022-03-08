@@ -1,4 +1,4 @@
-import AppHeader from '~/components/layouts/AppHeader';
+import AppHeader from '~/components/partials/AppHeader';
 
 const Layout: React.FC = ({ children }) => {
   return (
