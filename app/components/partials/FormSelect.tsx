@@ -22,6 +22,7 @@ const FormSelect: React.FC<IFormSelectProps> = (props) => {
   return (
     <select
       className="w-full max-w-xs daisy-select daisy-select-primary"
+      value={value}
       onChange={handleChange}
     >
       {items.map((item) => {
