@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { useLoaderData } from 'remix';
 
+import FormSelect from '~/components/partials/FormSelect';
 import ArtistList from '~/components/routes/ArtistList';
 import TrackList from '~/components/routes/TrackList';
 import { IHomeLoader } from '~/loaders/home';
@@ -21,23 +22,26 @@ const Home = () => {
 
   return (
     <div className="p-4 text-center">
-      <div className="flex justify-center">
-        <button
-          className={`w-full h-16 text-xl text-gray-500 ${
-            activeType === 'tracks' ? 'font-bold text-black' : ''
+      <div className="daisy-tabs daisy-tabs-boxed">
+        <span
+          className={`w-1/2 daisy-tab ${
+            activeType === 'tracks' ? 'daisy-tab-active' : ''
           }`}
           onClick={() => setActiveType('tracks')}
         >
-          Tracks
-        </button>
-        <button
-          className={`w-full h-16 text-xl text-gray-500 ${
-            activeType === 'artists' ? 'font-bold text-black' : ''
+          曲
+        </span>
+        <span
+          className={`w-1/2 daisy-tab ${
+            activeType === 'artists' ? 'daisy-tab-active' : ''
           }`}
           onClick={() => setActiveType('artists')}
         >
-          Artists
-        </button>
+          アーティスト
+        </span>
+      </div>
+      <div className="my-4">
+        <FormSelect />
       </div>
       {activeList}
     </div>
