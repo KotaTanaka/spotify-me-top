@@ -1,5 +1,4 @@
-import type { MetaFunction } from 'remix';
-import type { LinksFunction } from 'remix';
+import type { LinksFunction, MetaFunction } from 'remix';
 import {
   Links,
   LiveReload,

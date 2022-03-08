@@ -2,9 +2,20 @@ import type { LoaderFunction } from 'remix';
 import { redirect } from 'remix';
 
 import { cookieSpotifyToken } from '~/cookies';
-import { getTokenByRefreshToken } from '~/lib/spotify';
+import {
+  getTokenByRefreshToken,
+  getUserTopArtists,
+  getUserTopTracks,
+} from '~/lib/spotify';
 
-export const loader: LoaderFunction = async ({ request }) => {
+export interface IHomeLoader {
+  topArtists: any[];
+  topTracks: any[];
+}
+
+export const loader: LoaderFunction = async ({
+  request,
+}): Promise<IHomeLoader> => {
   const cookieHeader = request.headers.get('Cookie') ?? '';
   const { accessToken, refreshToken } =
     (await cookieSpotifyToken.parse(cookieHeader)) ?? {};
@@ -13,16 +24,27 @@ export const loader: LoaderFunction = async ({ request }) => {
     throw redirect('/login', 302);
   }
 
-  // TODO: 初期データ取得
-  const isTokenExpired = true;
+  const topArtistsResponse = await getUserTopArtists(accessToken);
+  const topTracksResponse = await getUserTopTracks(accessToken);
 
-  if (isTokenExpired) {
+  if (!topArtistsResponse || !topTracksResponse) {
     const response = await getTokenByRefreshToken(refreshToken);
-    if (!response) {
+    if (response) {
+      throw redirect('/', {
+        headers: {
+          'Set-Cookie': await cookieSpotifyToken.serialize({
+            accessToken: response.access_token,
+            refreshToken: response.refresh_token,
+          }),
+        },
+      });
+    } else {
       throw redirect('/login', 302);
     }
   }
 
-  console.log('accessToken', accessToken);
-  return {};
+  return {
+    topArtists: topArtistsResponse.items,
+    topTracks: topTracksResponse.items,
+  };
 };
