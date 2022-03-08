@@ -8,13 +8,13 @@ import { isAxiosError, spotifyApiAxios } from '~/lib/axios';
 
 export const getUserTopArtists = async (
   accessToken: string,
-  queries?: Partial<IGetUserTopItemsParam>,
+  queries?: IGetUserTopItemsParam,
 ) =>
   getUserTopItems<IGetUserTopArtistsResponse>('artists', accessToken, queries);
 
 export const getUserTopTracks = async (
   accessToken: string,
-  queries?: Partial<IGetUserTopItemsParam>,
+  queries?: IGetUserTopItemsParam,
 ) => getUserTopItems<IGetUserTopTracksResponse>('tracks', accessToken, queries);
 
 /**
@@ -24,7 +24,7 @@ export const getUserTopTracks = async (
 export const getUserTopItems = async <T extends IGetUserTopItemsResponse>(
   type: 'artists' | 'tracks',
   accessToken: string,
-  queries?: Partial<IGetUserTopItemsParam>,
+  queries?: IGetUserTopItemsParam,
 ) => {
   const path = `/v1/me/top/${type}`;
   const params: IGetUserTopItemsParam = {

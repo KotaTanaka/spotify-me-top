@@ -1,7 +1,7 @@
 export interface IGetUserTopItemsParam {
-  limit: number;
-  offset: number;
-  time_range: 'long_term' | 'medium_term' | 'short_term';
+  limit?: number;
+  offset?: number;
+  time_range?: 'long_term' | 'medium_term' | 'short_term';
 }
 
 export interface IGetUserTopItemsResponse {
