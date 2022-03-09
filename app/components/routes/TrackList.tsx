@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 import { ITopTrack } from '~/interfaces/spotify';
 
 import JacketImage from './JacketImage';
+import NumberBudge from './NumberBudge';
 import OpenExternalLink from './OpenExternalLink';
 
 interface ITrackListProps {
@@ -17,9 +18,7 @@ const TrackList: React.FC<ITrackListProps> = (props) => {
       {tracks.map((track, i) => {
         return (
           <li key={track.id} className="flex my-4">
-            <div className="flex justify-center items-center w-6 text-xl">
-              {i + 1}
-            </div>
+            <NumberBudge number={i + 1} />
             <JacketImage
               src={track.album.images[0].url}
               alt={track.album.name}
