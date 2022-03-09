@@ -1,5 +1,7 @@
 import { ITopTrack } from '~/interfaces/spotify';
 
+import JacketImage from './JacketImage';
+
 interface ITrackListProps {
   tracks: ITopTrack[];
 }
@@ -15,8 +17,7 @@ const TrackList: React.FC<ITrackListProps> = (props) => {
             <div className="flex justify-center items-center w-6 text-xl">
               {i + 1}
             </div>
-            <img
-              className="object-cover ml-4 w-32 h-32"
+            <JacketImage
               src={track.album.images[0].url}
               alt={track.album.name}
             />

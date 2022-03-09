@@ -1,5 +1,7 @@
 import { ITopArtist } from '~/interfaces/spotify';
 
+import JacketImage from './JacketImage';
+
 interface IArtistListProps {
   artists: ITopArtist[];
 }
@@ -15,11 +17,7 @@ const ArtistList: React.FC<IArtistListProps> = (props) => {
             <div className="flex justify-center items-center w-6 text-xl">
               {i + 1}
             </div>
-            <img
-              className="object-cover ml-4 w-32 h-32"
-              src={artist.images[0].url}
-              alt={artist.name}
-            />
+            <JacketImage src={artist.images[0].url} alt={artist.name} />
             <div className="flex flex-col justify-center items-start ml-4">
               <div className="text-xl">{artist.name}</div>
               <a
