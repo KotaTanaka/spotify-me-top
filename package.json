@@ -9,6 +9,7 @@
     "build:css": "tailwindcss -m -i app/styles/tailwind.css -o app/styles/gen/_tailwind.css",
     "dev": "concurrently \"npm run dev:css\" \"cross-env NODE_ENV=development remix dev\"",
     "dev:css": "tailwindcss -w -i app/styles/tailwind.css -o app/styles/gen/_tailwind.css",
+    "mock:build": "axios-mock-server -b",
     "postinstall": "remix setup node",
     "start": "cross-env NODE_ENV=production remix-serve build",
     "format": "eslint . --ext .js,.ts,.tsx --fix --ignore-path .gitignore && prettier --write . --ignore-path .gitignore"
@@ -31,6 +32,7 @@
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.13.0",
     "autoprefixer": "^10.4.2",
+    "axios-mock-server": "^0.19.1",
     "concurrently": "^7.0.0",
     "eslint": "^8.10.0",
     "eslint-config-prettier": "^8.5.0",

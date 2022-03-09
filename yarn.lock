@@ -997,6 +997,15 @@ axe-core@^4.3.5:
   resolved "https://registry.npmjs.org/axe-core/-/axe-core-4.4.1.tgz"
   integrity sha512-gd1kmb21kwNuWr6BQz8fv6GNECPBnUasepcoLbekws23NVBLODdsClRZ+bQ8+9Uomf3Sm3+Vwn0oYG9NvwnJCw==
 
+axios-mock-server@^0.19.1:
+  version "0.19.1"
+  resolved "https://registry.yarnpkg.com/axios-mock-server/-/axios-mock-server-0.19.1.tgz#5d7a3bbf78bbe07155e5d345f3f1cab76ebb0aa3"
+  integrity sha512-4Rh7eetDYq1KRqisvkflk+7LZ95zykIfBliV95da0rhtqjhq+yj661aOZIXIGyyWOwy3PtgHQ+vRtWWO5p4Osw==
+  dependencies:
+    chokidar "^3.5.1"
+    minimist "^1.2.5"
+    url-search-params-polyfill "^8.1.0"
+
 axios@^0.26.0:
   version "0.26.0"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.26.0.tgz#9a318f1c69ec108f8cd5f3c3d390366635e13928"
@@ -4996,6 +5005,11 @@ uri-js@^4.2.2:
   integrity sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==
   dependencies:
     punycode "^2.1.0"
+
+url-search-params-polyfill@^8.1.0:
+  version "8.1.1"
+  resolved "https://registry.yarnpkg.com/url-search-params-polyfill/-/url-search-params-polyfill-8.1.1.tgz#9e69e4dba300a71ae7ad3cead62c7717fd99329f"
+  integrity sha512-KmkCs6SjE6t4ihrfW9JelAPQIIIFbJweaaSLTh/4AO+c58JlDcb+GbdPt8yr5lRcFg4rPswRFRRhBGpWwh0K/Q==
 
 util-deprecate@^1.0.2:
   version "1.0.2"
