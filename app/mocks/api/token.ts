@@ -1,6 +1,6 @@
-import { MockMethods } from 'axios-mock-server';
+import type { MockMethods } from 'axios-mock-server';
 
-import { IGetTokenResponse } from '~/interfaces/spotify';
+import type { IGetTokenResponse } from '~/interfaces/spotify';
 
 const baseData: IGetTokenResponse = {
   access_token: 'mock_access_token',

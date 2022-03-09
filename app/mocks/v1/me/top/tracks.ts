@@ -1,6 +1,9 @@
-import { MockMethods } from 'axios-mock-server';
+import type { MockMethods } from 'axios-mock-server';
 
-import { IGetUserTopTracksResponse, ITopTrack } from '~/interfaces/spotify';
+import type {
+  IGetUserTopTracksResponse,
+  ITopTrack,
+} from '~/interfaces/spotify';
 import {
   getRandomAlbumName,
   getRandomArtistName,

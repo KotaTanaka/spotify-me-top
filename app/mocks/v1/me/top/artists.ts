@@ -1,6 +1,9 @@
-import { MockMethods } from 'axios-mock-server';
+import type { MockMethods } from 'axios-mock-server';
 
-import { IGetUserTopArtistsResponse, ITopArtist } from '~/interfaces/spotify';
+import type {
+  IGetUserTopArtistsResponse,
+  ITopArtist,
+} from '~/interfaces/spotify';
 import { getRandomArtistName } from '~/mocks/sample-data';
 
 const baseData: IGetUserTopArtistsResponse = {
