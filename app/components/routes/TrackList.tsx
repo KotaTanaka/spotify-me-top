@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 import { ITopTrack } from '~/interfaces/spotify';
 
 import JacketImage from './JacketImage';
@@ -30,8 +32,8 @@ const TrackList: React.FC<ITrackListProps> = (props) => {
                   href={track.external_urls['spotify']}
                   name="Spotify"
                 />
-                <div className="ml-2 text-gray-400">
-                  {track.album.release_date}
+                <div className="ml-2 text-sm text-gray-400">
+                  💿 {dayjs(track.album.release_date).format('YYYY年M月D日')}
                 </div>
               </div>
             </div>
