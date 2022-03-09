@@ -5,14 +5,6 @@ export interface IGetUserTopItemsParam {
 }
 
 export interface IGetUserTopItemsResponse {
-  access_token: string;
-  token_type: string;
-  scope: string;
-  expires_in: number;
-  refresh_token: string;
-}
-
-export interface IGetUserTopItemsResponse {
   items: ITopArtist[] | ITopTrack[];
   total: number;
   limit: number;
@@ -111,5 +103,5 @@ export interface ITopTrack {
   preview_url: string;
   track_number: number;
   type: string;
-  ur: string;
+  uri: string;
 }
