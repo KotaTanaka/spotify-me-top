@@ -22,6 +22,14 @@ const ArtistList: React.FC<IArtistListProps> = (props) => {
             />
             <div className="flex flex-col justify-center items-start ml-4">
               <div className="text-xl">{artist.name}</div>
+              <a
+                className="mt-4 daisy-btn daisy-btn-sm daisy-btn-outline daisy-btn-secondary"
+                href={artist.external_urls['spotify']}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Open Spotify
+              </a>
             </div>
           </li>
         );

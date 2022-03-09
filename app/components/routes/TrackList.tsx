@@ -20,10 +20,22 @@ const TrackList: React.FC<ITrackListProps> = (props) => {
               src={track.album.images[0].url}
               alt={track.album.name}
             />
-            <div className="flex flex-col justify-center items-start ml-4">
+            <div className="flex flex-col flex-1 justify-center items-start ml-4">
               <div className="text-xl">{track.name}</div>
-              <div className="text-gray-500">{track.album.name}</div>
-              <div className="text-gray-500">{track.album.release_date}</div>
+              <div className="text-gray-400">{track.album.name}</div>
+              <div className="flex items-center mt-4 w-full">
+                <a
+                  className="daisy-btn daisy-btn-sm daisy-btn-outline daisy-btn-secondary"
+                  href={track.external_urls['spotify']}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Open Spotify
+                </a>
+                <div className="ml-2 text-gray-400">
+                  {track.album.release_date}
+                </div>
+              </div>
             </div>
           </li>
         );
