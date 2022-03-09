@@ -1,6 +1,7 @@
 import { ITopTrack } from '~/interfaces/spotify';
 
 import JacketImage from './JacketImage';
+import OpenExternalLink from './OpenExternalLink';
 
 interface ITrackListProps {
   tracks: ITopTrack[];
@@ -25,14 +26,10 @@ const TrackList: React.FC<ITrackListProps> = (props) => {
               <div className="text-xl">{track.name}</div>
               <div className="text-gray-400">{track.album.name}</div>
               <div className="flex items-center mt-4 w-full">
-                <a
-                  className="daisy-btn daisy-btn-sm daisy-btn-outline daisy-btn-secondary"
+                <OpenExternalLink
                   href={track.external_urls['spotify']}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Open Spotify
-                </a>
+                  name="Spotify"
+                />
                 <div className="ml-2 text-gray-400">
                   {track.album.release_date}
                 </div>
