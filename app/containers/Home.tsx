@@ -58,7 +58,7 @@ const Home = () => {
   };
 
   return (
-    <div className="p-4 text-center">
+    <div className="py-8 px-4 text-center">
       <div className="daisy-tabs daisy-tabs-boxed">
         <span
           className={genTabClassNames('tracks')}
@@ -73,10 +73,10 @@ const Home = () => {
           アーティスト
         </span>
       </div>
-      <div className="my-4">
+      <div className="mt-4">
         <FormSelect value={term} items={termItems} onChange={onChangeTerm} />
       </div>
-      {activeList}
+      <div className="mt-8">{activeList}</div>
     </div>
   );
 };
