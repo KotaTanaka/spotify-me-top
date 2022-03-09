@@ -1,7 +1,7 @@
 const AppHeader: React.FC = () => {
   return (
-    <header className="flex justify-center items-center h-14 shadow">
-      <span className="text-xl font-bold">Spotify Me Top</span>
+    <header className="flex fixed top-0 left-0 z-50 justify-center items-center w-full h-14 shadow bg-neutral">
+      <span className="text-xl italic font-bold">Spotify Me Top</span>
     </header>
   );
 };
