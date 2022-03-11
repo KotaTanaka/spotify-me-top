@@ -23,9 +23,7 @@ export interface IGetUserTopTracksResponse extends IGetUserTopItemsResponse {
 }
 
 export interface ITopArtist {
-  external_urls: {
-    [key: string]: string;
-  };
+  external_urls: Record<string, string>;
   followers: {
     href: string | null;
     total: number;
@@ -48,9 +46,7 @@ export interface ITopTrack {
   album: {
     album_type: string;
     artists: {
-      external_urls: {
-        [key: string]: string;
-      };
+      external_urls: Record<string, string>;
       href: string;
       id: string;
       name: string;
@@ -58,9 +54,7 @@ export interface ITopTrack {
       uri: string;
     }[];
     available_markets: string[];
-    external_urls: {
-      [key: string]: string;
-    };
+    external_urls: Record<string, string>;
     href: string;
     id: string;
     images: {
@@ -76,9 +70,7 @@ export interface ITopTrack {
     uri: string;
   };
   artists: {
-    external_urls: {
-      [key: string]: string;
-    };
+    external_urls: Record<string, string>;
     href: string;
     id: string;
     name: string;
@@ -89,12 +81,8 @@ export interface ITopTrack {
   disc_number: number;
   duration_ms: number;
   explicit: boolean;
-  external_ids: {
-    [key: string]: string;
-  };
-  external_urls: {
-    [key: string]: string;
-  };
+  external_ids: Record<string, string>;
+  external_urls: Record<string, string>;
   href: string;
   id: string;
   is_local: boolean;
